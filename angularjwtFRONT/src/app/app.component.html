@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="#">Angular JWT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="">Home</a>
+      </li>
+      <li *ngIf="!isLogin" class="nav-item">
+        <a class="nav-link" routerLink="login">Iniciar Sesión</a>
+      </li>
+      <li *ngIf="authority === 'user'" class="nav-item">
+          <a class="nav-link" routerLink="usuario">Panel de usuario</a>
+      </li>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+          <a class="nav-link" routerLink="admin">Panel de Admin</a>
+      <li *ngIf="isLogin" class="nav-item">
+        <a class="nav-link" (click)="logOut()" style="cursor: pointer;">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
